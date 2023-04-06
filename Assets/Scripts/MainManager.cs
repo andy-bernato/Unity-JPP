@@ -6,7 +6,7 @@ using System.IO;
 public class MainManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static MainManager Instance;
+    public static MainManager Instance {get; private set;}
 
     public Color TeamColor;
 
@@ -22,6 +22,7 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        LoadColor();
     }
 
     [System.Serializable]
@@ -50,5 +51,5 @@ public class MainManager : MonoBehaviour
 
             TeamColor = data.TeamColor;
         }
-}
+    }
 }
